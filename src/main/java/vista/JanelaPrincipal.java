@@ -1,5 +1,10 @@
 package vista;
 
+import modelo.Filial;
+import modelo.GestorLocais;
+import modelo.Local;
+import modelo.Sede;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
@@ -15,6 +20,8 @@ public class JanelaPrincipal extends JFrame {
     public JanelaPrincipal(String title){
         super(title);
         gerirPeçasButton.addActionListener(this::btnGerirPecasActionPerformed);
+        GestorLocais.INSTANCE.addLocais(new Sede("Sede"));
+        GestorLocais.INSTANCE.addLocais(new Filial("Filial1"));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
         pack();

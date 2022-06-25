@@ -1,7 +1,10 @@
 package modelo;
 
-public class Feira extends Local{
+public class Feira {
+    private String nome;
     public Feira(String nome) {
-        super(nome);
+        this.nome = nome;
     }
+
+
 }

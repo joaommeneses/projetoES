@@ -1,10 +1,12 @@
 package vista;
 
+import modelo.GestorLocais;
 import modelo.GestorPeca;
 import modelo.Peca;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.regex.Pattern;
 
 public class JanelaRegistoPecas extends JFrame {
     private JTextField textFieldReferencia;
@@ -16,7 +18,6 @@ public class JanelaRegistoPecas extends JFrame {
     private JButton cancelarButton;
     private JPanel painelRegistoPecas;
     private JButton confirmarButton;
-
     private Peca peca;
 
     public JanelaRegistoPecas(String title){
@@ -68,17 +69,22 @@ public class JanelaRegistoPecas extends JFrame {
             erros+=1;
             Erros.mostrarErro(this, Erros.STOCK_MIN_INVALIDO);
         }
-        if(isPrecoValido(Double.parseDouble(textFieldPreco.getText()))){
+        if(textFieldPreco.getText().matches("[0-9]{1,13}(\\.[0-9]*)?")) {
+            if (isPrecoValido(Double.parseDouble(textFieldPreco.getText()))) {
 
+            } else {
+                erros += 1;
+                Erros.mostrarErro(this, Erros.PRECO_INVALIDO);
+            }
         }else{
-            erros+=1;
+            erros += 1;
             Erros.mostrarErro(this, Erros.PRECO_INVALIDO);
         }
-
         if(erros == 0){
             peca = new Peca(textFieldReferencia.getText(), textFieldNome.getText(), Integer.parseInt(textFieldStockMinSede.getText()), Integer.parseInt(textFieldStockMinFilial.getText()), categoriaComboBox.toString() , Double.parseDouble(textFieldPreco.getText()));
             JOptionPane.showMessageDialog(this, "Peça registada com sucesso!");
             GestorPeca.INSTANCE.adicionarPeca(peca);
+            GestorLocais.INSTANCE.addPecaToLocais(peca, Integer.parseInt(textFieldStockMinFilial.getText()), Integer.parseInt(textFieldStockMinSede.getText()));
             JanelaGestaoPecas.mostrarGestaoPeca();
         }
 
