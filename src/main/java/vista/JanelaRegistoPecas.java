@@ -79,6 +79,7 @@ public class JanelaRegistoPecas extends JFrame {
             peca = new Peca(textFieldReferencia.getText(), textFieldNome.getText(), Integer.parseInt(textFieldStockMinSede.getText()), Integer.parseInt(textFieldStockMinFilial.getText()), categoriaComboBox.toString() , Double.parseDouble(textFieldPreco.getText()));
             JOptionPane.showMessageDialog(this, "Peça registada com sucesso!");
             GestorPeca.INSTANCE.adicionarPeca(peca);
+            JanelaGestaoPecas.mostrarGestaoPeca();
         }
 
     }
