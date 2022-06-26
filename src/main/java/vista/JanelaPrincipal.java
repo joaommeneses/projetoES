@@ -8,15 +8,15 @@ import java.awt.event.ActionEvent;
 public class JanelaPrincipal extends JFrame {
     private JPanel painelPrincipal;
     private JButton gerirVeiculosButton;
-    private JButton gerirPeçasButton;
+    private JButton gerirPecasButton;
     private JButton gerirEventosButton;
-    private JButton gerirTransaçõesButton;
+    private JButton gerirTransacoesButton;
     private JButton gerirClientesButton;
-    private JButton estatísticasButton;
+    private JButton estatisticasButton;
 
     public JanelaPrincipal(String title){
         super(title);
-        gerirPeçasButton.addActionListener(this::btnGerirPecasActionPerformed);
+        gerirPecasButton.addActionListener(this::btnGerirPecasActionPerformed);
 
         //LOCAIS
         Sede sede = new Sede("Sede");
@@ -51,7 +51,7 @@ public class JanelaPrincipal extends JFrame {
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
         gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
         gerirEventosButton.addActionListener(this::btnGerirEventosActionPerformed);
-        gerirTransaçõesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
+        gerirTransacoesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
