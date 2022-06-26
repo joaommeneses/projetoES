@@ -17,4 +17,9 @@ public class JanelaEstatisticas extends JFrame {
         pack();
     }
 
+    public static void mostrarEstatisticas(){
+        var janela = new JanelaEstatisticas("JanelaEstatísticas");
+        janela.setVisible(true);
+    }
+
 }

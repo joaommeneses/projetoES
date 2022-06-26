@@ -24,6 +24,7 @@ public class JanelaPrincipal extends JFrame {
         GestorLocais.INSTANCE.addLocais(new Filial("Filial1"));
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
         gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
+        estatísticasButton.addActionListener(this::btnVisualizarEstatisticasActionPerformed);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
         pack();
@@ -43,4 +44,7 @@ public class JanelaPrincipal extends JFrame {
         janelaVeiculos.mostarGestorVeiculos();
     }
 
+    private void btnVisualizarEstatisticasActionPerformed(ActionEvent evt){
+        JanelaEstatisticas.mostrarEstatisticas();
+    }
 }
