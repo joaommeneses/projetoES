@@ -62,9 +62,9 @@ public class JanelaPrincipal extends JFrame {
         JanelaEventos.mostrarGestorEventos();
     }
 
-    private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente(getTitle()).setVisible(true);}
+    private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente("Janela Cliente").setVisible(true);}
 
-    private void btnGerirTransacoesActionPerformed(ActionEvent evt) { new JanelaTransacoes(getTitle()).setVisible(true);}
+    private void btnGerirTransacoesActionPerformed(ActionEvent evt) { new JanelaTransacoes("Janela Transacoes").setVisible(true);}
 
     public static void main(String[] args) {
         new JanelaPrincipal("JanelaPrincipal").setVisible(true);
