@@ -39,7 +39,7 @@ public class JanelaTransacoes extends JFrame {
     }
 
     private void populateTabel() {
-        List<Transacao> listaTrasacoes = GestorTrasacoes.INSTANCE.getTransacoes();
+        List<Transacao> listaTrasacoes = GestorTransacoes.INSTANCE.getTransacoes();
 
 
         for(Transacao transacao : listaTrasacoes){

@@ -2,7 +2,7 @@ package vista;
 
 import modelo.Cliente;
 import modelo.GestorClientes;
-import modelo.GestorTrasacoes;
+import modelo.GestorTransacoes;
 import modelo.Transacao;
 
 import javax.swing.*;
@@ -77,11 +77,11 @@ public class JanelaRegistoTransacao extends JFrame{
     private void criarTransaçao(){
         Cliente cliente = GestorClientes.INSTANCE.getClienteComNif(Long.parseLong(nifTextField.getText()));
         System.out.println(cliente);
-        GestorTrasacoes.INSTANCE.adicionarTransacao(new Transacao(cliente, Double.parseDouble(valorTextField.getText()), compraRadioButton.isSelected()));
+        GestorTransacoes.INSTANCE.adicionarTransacao(new Transacao(cliente, Double.parseDouble(valorTextField.getText()), compraRadioButton.isSelected()));
         JOptionPane.showMessageDialog(this, "Trasação registada com sucesso!");
         fechar();
         if(compraRadioButton.isSelected()){
-            janelaRegistoVeiculo.mostrarRegistoVeiculo();
+            JanelaRegistoVeiculo.mostrarRegistoVeiculo();
         }
     }
 
