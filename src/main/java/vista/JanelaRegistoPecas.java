@@ -1,8 +1,6 @@
 package vista;
 
-import modelo.GestorLocais;
-import modelo.GestorPeca;
-import modelo.Peca;
+import modelo.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +22,10 @@ public class JanelaRegistoPecas extends JFrame {
         super(title);
         confirmarButton.addActionListener(this::btnConfirmarActionPerformed);
         cancelarButton.addActionListener(this::btnCancelarActionPerformed);
-         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        populateCategorias();
+
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setContentPane(painelRegistoPecas);
         pack();
     }
@@ -81,7 +82,7 @@ public class JanelaRegistoPecas extends JFrame {
             Erros.mostrarErro(this, Erros.PRECO_INVALIDO);
         }
         if(erros == 0){
-            peca = new Peca(textFieldReferencia.getText(), textFieldNome.getText(), Integer.parseInt(textFieldStockMinSede.getText()), Integer.parseInt(textFieldStockMinFilial.getText()), categoriaComboBox.toString() , Double.parseDouble(textFieldPreco.getText()));
+            peca = new Peca(textFieldReferencia.getText(), textFieldNome.getText(), Integer.parseInt(textFieldStockMinSede.getText()), Integer.parseInt(textFieldStockMinFilial.getText()), (Categoria) categoriaComboBox.getItemAt(categoriaComboBox.getSelectedIndex()) , Double.parseDouble(textFieldPreco.getText()));
             JOptionPane.showMessageDialog(this, "Peça registada com sucesso!");
             GestorPeca.INSTANCE.adicionarPeca(peca);
             GestorLocais.INSTANCE.addPecaToLocais(peca, Integer.parseInt(textFieldStockMinFilial.getText()), Integer.parseInt(textFieldStockMinSede.getText()));
@@ -136,4 +137,9 @@ public class JanelaRegistoPecas extends JFrame {
         }
     }
 
+    private void populateCategorias() {
+        for (Categoria categoria : Categoria.values()) {
+            categoriaComboBox.addItem(categoria);
+        }
+    }
 }

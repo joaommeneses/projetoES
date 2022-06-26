@@ -17,7 +17,6 @@ public class JanelaPrincipal extends JFrame {
     public JanelaPrincipal(String title){
         super(title);
         gerirPeçasButton.addActionListener(this::btnGerirPecasActionPerformed);
-//<<<<<<< HEAD
 
         //LOCAIS
         Sede sede = new Sede("Sede");
@@ -31,6 +30,8 @@ public class JanelaPrincipal extends JFrame {
 
         //EVENTOS
         GestorEventos.INSTANCE.adicionarEvento(new Evento("Feira de Maio", new Data(01,01,2022) ,feira_de_maio, 10 ));
+
+
         //VEICULOS
         Veiculo veiculo = new Veiculo("XA-08-YP", "BMW", "M4", 0,
                 "Preto", 0, Combustivel.GASOLINA, 350, 4000, 2022, 100000, "");
@@ -46,11 +47,11 @@ public class JanelaPrincipal extends JFrame {
         feira_de_maio.addVeiculo(veiculo);
         feira_de_maio.addVeiculo(veiculo1);
 
-//=======
+
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
         gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
         gerirEventosButton.addActionListener(this::btnGerirEventosActionPerformed);
-//>>>>>>> 68765bcd322054472db5a7bca8e6e4ea1f301a22
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
         pack();

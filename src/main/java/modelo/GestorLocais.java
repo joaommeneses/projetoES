@@ -32,12 +32,23 @@ public class GestorLocais{
         return null;
     }
 
+<<<<<<< HEAD
     public Local getLocal(String s) {
         for (Local local : locais) {
             if(s.equals(local.getNome())){
                 return local;
+=======
+    public Local getLocal(String name){
+        for(Local l : locais){
+            if(l.getNome().equals(name)){
+                return l;
+>>>>>>> 76ceef0827e1ce087caf383afc332831f47efb2e
             }
         }
         return null;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 76ceef0827e1ce087caf383afc332831f47efb2e
 }

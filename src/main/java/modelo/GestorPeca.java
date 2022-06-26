@@ -29,4 +29,13 @@ public class GestorPeca {
             System.out.println(peca1.getReferencia());
         }
     }
+
+    public Peca getPeca(String referencia){
+        for (Peca peca : pecas) {
+            if(referencia.equals(peca.getReferencia())){
+                return peca;
+            }
+        }
+        return null;
+    }
 }
