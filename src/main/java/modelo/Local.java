@@ -29,6 +29,10 @@ public abstract class Local {
         return nome.equals(other.nome);
     }
 
+    public String getQuantidade(Peca peca){
+        return pecas.get(peca).toString();
+    }
+
     public abstract void addPeca(Peca p, int vFilial, int vSede);
 
 

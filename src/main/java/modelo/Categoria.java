@@ -1,6 +1,6 @@
 package modelo;
 
-public enum Categorias {
+public enum Categoria {
     SISTEMA_TRAVAGEM,
     MOTOR,
     FILTRO,
