@@ -51,6 +51,7 @@ public class JanelaPrincipal extends JFrame {
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
         gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
         gerirEventosButton.addActionListener(this::btnGerirEventosActionPerformed);
+        gerirTransaçõesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
@@ -62,6 +63,8 @@ public class JanelaPrincipal extends JFrame {
     }
 
     private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente(getTitle()).setVisible(true);}
+
+    private void btnGerirTransacoesActionPerformed(ActionEvent evt) { new JanelaTransacoes(getTitle()).setVisible(true);}
 
     public static void main(String[] args) {
         new JanelaPrincipal("JanelaPrincipal").setVisible(true);

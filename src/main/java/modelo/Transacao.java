@@ -10,4 +10,16 @@ public class Transacao {
         this.valor = valor;
         this.compra = compra;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public boolean isCompra() {
+        return compra;
+    }
 }
