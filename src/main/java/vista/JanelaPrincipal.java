@@ -23,10 +23,14 @@ public class JanelaPrincipal extends JFrame {
         GestorLocais.INSTANCE.addLocais(new Sede("Sede"));
         GestorLocais.INSTANCE.addLocais(new Filial("Filial1"));
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
+        gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
         pack();
     }
+
+    private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente(getTitle()).setVisible(true);}
+
     public static void main(String[] args) {
         new JanelaPrincipal("JanelaPrincipal").setVisible(true);
     }
