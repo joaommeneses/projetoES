@@ -7,12 +7,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-public class janelaVeiculos extends JFrame{
+public class JanelaVeiculos extends JFrame{
     private JPanel panelVeiculo;
     private JScrollPane scrollPane;
     private JButton buttonEditar;
@@ -25,7 +24,7 @@ public class janelaVeiculos extends JFrame{
 
     DefaultTableModel dm;
 
-    public janelaVeiculos(String title){
+    public JanelaVeiculos(String title){
         super(title);
 
 
@@ -47,14 +46,15 @@ public class janelaVeiculos extends JFrame{
 
     private void buttonEditarActionPerformed(ActionEvent evt) {
         var row = jTable.getSelectedRow();
-        if(jTable.getSelectedRow() == -1){
+        if(row == -1){
             JOptionPane.showMessageDialog(this, "Precisa de selecionar um veiculo");
-        }
-        var matricula = jTable.getValueAt(row, 0);
-        System.out.println(matricula);
-        var veiculo = GestorVeiculos.INSTANCE.getVeiculo(matricula.toString());
+        }else {
+            var matricula = jTable.getValueAt(row, 0);
+            System.out.println(matricula);
+            var veiculo = GestorVeiculos.INSTANCE.getVeiculo(matricula.toString());
 
-        janelaRegistoVeiculo.mostrarAlterarVeiculo(veiculo);
+            JanelaRegistoVeiculo.mostrarAlterarVeiculo(veiculo);
+        }
     }
 
     private void filtrarTextFieldKeyReleased(KeyEvent evt){
@@ -71,7 +71,7 @@ public class janelaVeiculos extends JFrame{
         dm.addColumn("Matrícula");
         dm.addColumn("Marca");
         dm.addColumn("Modelo");
-        /*dm.addColumn("Antigo Dono");*/
+        dm.addColumn("Antigo Dono");
         dm.addColumn("Nº Donos");
         dm.addColumn("Cor");
         dm.addColumn("KM");
@@ -83,18 +83,20 @@ public class janelaVeiculos extends JFrame{
     }
 
     public static void mostarGestorVeiculos(){
-        var janela = new janelaVeiculos("Gestão de Veículos");
+        var janela = new JanelaVeiculos("Gestão de Veículos");
         janela.setVisible(true);
 
     };
 
     private void buttonRegistarActionPerformed(ActionEvent e) {
-        janelaRegistoVeiculo.mostrarRegistoVeiculo();
+        JanelaRegistoVeiculo.mostrarRegistoVeiculo();
     }
 
     private void atualizarVeiculos() {
-        for (int i = 0; i < dm.getRowCount(); i++) {
-            dm.removeRow(i);
+        if(dm.getRowCount()>0){
+            for(int i = dm.getRowCount() -1; i> -1; i--){
+                dm.removeRow(i);
+            }
         }
         List<Veiculo> lista = GestorVeiculos.INSTANCE.getVeiculos();
 
@@ -104,7 +106,7 @@ public class janelaVeiculos extends JFrame{
                     veiculo.getMatricula(),
                     veiculo.getMarca(),
                     veiculo.getModelo(),
-                    /*veiculo.getAntigoDono(),*/
+                    veiculo.getAntigoDono(),
                     String.valueOf(veiculo.getNrDonos()),
                     String.valueOf(veiculo.getCor()),
                     String.valueOf(veiculo.getKm()),
