@@ -30,7 +30,6 @@ public class JanelaRegistarCliente extends JFrame{
     }
 
     private void btnConfirmar(ActionEvent evt){
-        System.out.println("click em Confirmar");
         if(!isNomeValido(nomeTextField.getText())){
             Erros.mostrarErro(this, Erros.NOME_INVALIDO);
             return;
@@ -59,12 +58,10 @@ public class JanelaRegistarCliente extends JFrame{
         GestorClientes.INSTANCE.adicionarCliente(new Cliente(nomeTextField.getText(), nif, contato, emailTextField.getText()));
         JOptionPane.showMessageDialog(this, "Cliente registado com sucesso!");
         fechar();
-        new JanelaCliente("Janela Cliente").setVisible(true);
 
     }
 
     private void btnCancelar(ActionEvent evt){
-        System.out.println("click em Cancelar");
         fechar();
     }
 
@@ -97,6 +94,7 @@ public class JanelaRegistarCliente extends JFrame{
     }
 
     private void fechar(){
+        new JanelaCliente("Janela Cliente").setVisible(true); // garante que a comboBox tem sempre os dados atualizados
         this.dispose();
     }
 }

@@ -18,7 +18,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="a40e9" class="javax.swing.JList" binding="listaTransaçoes">
+          <component id="3153b" class="javax.swing.JTable" binding="table1" default-binding="true">
             <constraints/>
             <properties/>
           </component>
@@ -30,14 +30,6 @@
         </constraints>
         <properties>
           <text value="Lista Transações:"/>
-        </properties>
-      </component>
-      <component id="10fc4" class="javax.swing.JButton" binding="novaTransaçãoButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Nova Transação"/>
         </properties>
       </component>
       <component id="6ca63" class="javax.swing.JLabel">
@@ -82,6 +74,14 @@
           </grid>
         </constraints>
       </hspacer>
+      <component id="10fc4" class="javax.swing.JButton" binding="novaTransaçãoButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nova Transação"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
