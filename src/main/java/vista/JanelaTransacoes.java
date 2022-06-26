@@ -58,7 +58,7 @@ public class JanelaTransacoes extends JFrame {
                         String.valueOf(transacao.getValor()),
                         "Venda"
                 };
-                dm.addRow(rowData);
+                dm.addRow(rowData);//
             }
         }
     }

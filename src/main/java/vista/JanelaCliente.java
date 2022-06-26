@@ -17,7 +17,7 @@ public class JanelaCliente extends JFrame{
     private JPanel painelCliente;
     private JTable table1;
 
-    DefaultTableModel dm;
+    DefaultTableModel dm;//
 
     public JanelaCliente(String title) {
         super(title);

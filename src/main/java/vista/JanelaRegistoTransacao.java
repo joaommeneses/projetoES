@@ -18,7 +18,7 @@ public class JanelaRegistoTransacao extends JFrame{
     private JPanel painelJanelaRegistoTransacao;
     private JButton cancelarButton;
     private JTextField nomeClienteTextField;
-    private JTextField nifTextField;
+    private JTextField nifTextField;//
 
 
     public JanelaRegistoTransacao(String title, Frame parent) {
