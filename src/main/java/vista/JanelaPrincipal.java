@@ -20,16 +20,20 @@ public class JanelaPrincipal extends JFrame {
     public JanelaPrincipal(String title){
         super(title);
         gerirPeçasButton.addActionListener(this::btnGerirPecasActionPerformed);
-<<<<<<< HEAD
+//<<<<<<< HEAD
         GestorLocais.INSTANCE.addLocais(new Sede("Sede"));
         GestorLocais.INSTANCE.addLocais(new Filial("Filial1"));
-=======
+//=======
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
->>>>>>> 68765bcd322054472db5a7bca8e6e4ea1f301a22
+        gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
+//>>>>>>> 68765bcd322054472db5a7bca8e6e4ea1f301a22
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
         pack();
     }
+
+    private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente(getTitle()).setVisible(true);}
+
     public static void main(String[] args) {
         new JanelaPrincipal("JanelaPrincipal").setVisible(true);
     }

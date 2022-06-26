@@ -20,6 +20,10 @@ public class Erros {
     public static final int ANO_INVALIDO = 16;
     public static final int NRDONOS_INVALIDO = 17;
     public static final int MATRICULA_REPETIDA = 18;
+    public static final int NIF_INVALIDO = 19;
+    public static final int CONTATO_INVALIDO = 20;
+    public static final int EMAIL_INVALIDO = 21;
+    public static final int NIF_REPETIDO = 22;
 
     public static void mostrarErro(Window parent, int numero){
 
@@ -95,6 +99,26 @@ public class Erros {
 
             case MATRICULA_REPETIDA-> {
                 JOptionPane.showMessageDialog(parent, "Matrícula Inválida. Já existe um veículo com a matrícula indicada");
+                break;
+            }
+
+            case NIF_INVALIDO-> {
+                JOptionPane.showMessageDialog(parent, "NIF Inválido. Deve ser um numero de 9 digitos");
+                break;
+            }
+
+            case CONTATO_INVALIDO-> {
+                JOptionPane.showMessageDialog(parent, "Contato Inválido. Deve ser um numero de 9 digitos");
+                break;
+            }
+
+            case EMAIL_INVALIDO-> {
+                JOptionPane.showMessageDialog(parent, "Email Inválido.");
+                break;
+            }
+
+            case NIF_REPETIDO-> {
+                JOptionPane.showMessageDialog(parent, "NIF Inválido. Já existe um cliente com o NIF indicado");
                 break;
             }
         }
