@@ -4,7 +4,7 @@ public class Veiculo {
     private String matricula;
     private String marca;
     private String modelo;
-//    private Cliente antigoDono;
+    private String antigoDono;
     private int nrDonos;
     private String cor;
     private double km;
@@ -14,7 +14,7 @@ public class Veiculo {
     private int ano;
     private double preco;
 
-    public Veiculo(String matricula, String marca, String modelo, int nrDonos, String cor, double km, Combustivel combustivel, int potencia, double cilindrada, int ano, double preco /*,Cliente antigoDono */) {
+    public Veiculo(String matricula, String marca, String modelo, int nrDonos, String cor, double km, Combustivel combustivel, int potencia, double cilindrada, int ano, double preco, String antigoDono) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -26,6 +26,7 @@ public class Veiculo {
         this.cilindrada = cilindrada;
         this.ano = ano;
         this.preco = preco;
+        this.antigoDono = antigoDono;
     }
 
     public void setNrDonos(int nrDonos) {
@@ -94,5 +95,9 @@ public class Veiculo {
 
     public double getPreco() {
         return preco;
+    }
+
+    public String getAntigoDono() {
+        return antigoDono;
     }
 }

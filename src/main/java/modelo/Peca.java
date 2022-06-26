@@ -7,8 +7,9 @@ public class Peca {
     private String nome;
     private int stock_minimo_sede;
     private int stock_minimo_filial;
-    private String categoria;
+    private Categoria categoria;
     private double preco_unit_atual;
+    private int quantidadeAtual;
     private int hashCode;
 
     @Override
@@ -20,12 +21,22 @@ public class Peca {
         return referencia.equals(other.referencia);
     }
 
+
+    public int getStock_minimo_sede() {
+        return stock_minimo_sede;
+    }
+
+    public int getStock_minimo_filial() {
+        return stock_minimo_filial;
+    }
+
     @Override
     public int hashCode(){
         return this.hashCode;
     }
 
-    public Peca(String referencia, String nome, int stock_minimo_sede, int stock_minimo_filial, String categoria, double preco_unit_atual) {
+    public Peca(String referencia, String nome, int stock_minimo_sede, int stock_minimo_filial, Categoria categoria, double preco_unit_atual) {
+        this.quantidadeAtual = 0;
         this.referencia = referencia;
         this.nome = nome;
         this.stock_minimo_sede = stock_minimo_sede;
@@ -43,4 +54,11 @@ public class Peca {
         return this.nome;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public double getPreco_unit_atual() {
+        return preco_unit_atual;
+    }
 }

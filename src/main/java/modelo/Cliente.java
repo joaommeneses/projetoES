@@ -7,14 +7,14 @@ public class Cliente {
     private long nif;
     private long contato;
     private String email;
-    private LinkedList<Transacao> transacaos;
+    private LinkedList<Transacao> transacoes;
 
     public Cliente(String nome, long nif, long contato, String email) {
         this.nome = nome;
         this.nif = nif;
         this.contato = contato;
         this.email = email;
-        transacaos = new LinkedList<>();
+        transacoes = new LinkedList<>();
     }
 
     public long getNif() {
@@ -23,5 +23,13 @@ public class Cliente {
 
     public String getNome() {
         return nome;
+    }
+
+    public LinkedList<Transacao> getTransacoes() {
+        return new LinkedList<>(transacoes);
+    }
+
+    public void adicionarTransacao(Transacao transacao){
+        transacoes.add(transacao);
     }
 }
