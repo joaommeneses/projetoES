@@ -25,14 +25,14 @@ public class JanelaPrincipal extends JFrame {
         GestorLocais.INSTANCE.addLocais(filial1);
         Feira feira_de_maio = new Feira("Feira de Maio");
         GestorLocais.INSTANCE.addLocais(feira_de_maio);
-        Feira feira_de_março = new Feira("Feira de Março");
-        GestorLocais.INSTANCE.addLocais(feira_de_março);
+        Feira feira_de_marco = new Feira("Feira de Março");
+        GestorLocais.INSTANCE.addLocais(feira_de_marco);
         Filial filial2 = new Filial("Filial 2");
         GestorLocais.INSTANCE.addLocais(filial2);
 
 
 
-        GestorEventos.INSTANCE.adicionarEvento(new Evento("Feira de Março", new Data(26, 06, 2022), feira_de_março, 10));
+        GestorEventos.INSTANCE.adicionarEvento(new Evento("Feira de Março", new Data(26, 06, 2022), feira_de_marco, 10));
         //EVENTOS
         GestorEventos.INSTANCE.adicionarEvento(new Evento("Feira de Maio", new Data(01,01,2022) ,feira_de_maio, 10 ));
 
@@ -55,10 +55,10 @@ public class JanelaPrincipal extends JFrame {
         Veiculo veiculo3 = new Veiculo("XA-11-YP", "Mercedes", "AMG-GT", 0, "PRETO", 0, Combustivel.GASOLINA, 350,4000,2022,10000,"");
         GestorVeiculos.INSTANCE.adicionarVeiculo(veiculo3);
 
-        feira_de_março.addVeiculo(veiculo2);
-        feira_de_março.addVeiculo(veiculo);
-        feira_de_março.addVeiculo(veiculo1);
-        feira_de_março.addVeiculo(veiculo3);
+        feira_de_marco.addVeiculo(veiculo2);
+        feira_de_marco.addVeiculo(veiculo);
+        feira_de_marco.addVeiculo(veiculo1);
+        feira_de_marco.addVeiculo(veiculo3);
 
         Cliente cliente1 = new Cliente("Antonio", 245313192, 950276172, "joao@mail.pt");
         Transacao transacao1 = new Transacao(cliente1, 2.50, true);
