@@ -57,10 +57,8 @@ public class JanelaRegistoTransacao extends JFrame{
         }
 
         if(GestorClientes.INSTANCE.existeClienteComNif(Long.parseLong(nifTextField.getText()))){
-            System.out.println("NIF EXISTE");
             criarTransacao();
         } else {
-            System.out.println("NIF NAO EXISTE");
             new JanelaRegistarCliente(getTitle(), this).setVisible(true);
             JOptionPane.showMessageDialog(this, "Crie Primeiro o cliente");
             this.dispose();
@@ -75,7 +73,6 @@ public class JanelaRegistoTransacao extends JFrame{
 
     private void criarTransacao(){
         Cliente cliente = GestorClientes.INSTANCE.getClienteComNif(Long.parseLong(nifTextField.getText()));
-        System.out.println(cliente);
         GestorTransacoes.INSTANCE.adicionarTransacao(new Transacao(cliente, Double.parseDouble(valorTextField.getText()), compraRadioButton.isSelected()));
         JOptionPane.showMessageDialog(this, "Trasação registada com sucesso!");
         fechar();
