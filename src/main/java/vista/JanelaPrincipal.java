@@ -8,25 +8,27 @@ import java.awt.event.ActionEvent;
 public class JanelaPrincipal extends JFrame {
     private JPanel painelPrincipal;
     private JButton gerirVeiculosButton;
-    private JButton gerirPeçasButton;
+    private JButton gerirPecasButton;
     private JButton gerirEventosButton;
-    private JButton gerirTransaçõesButton;
+    private JButton gerirTransacoesButton;
     private JButton gerirClientesButton;
-    private JButton estatísticasButton;
+    private JButton estatisticasButton;
 
     public JanelaPrincipal(String title){
         super(title);
-        gerirPeçasButton.addActionListener(this::btnGerirPecasActionPerformed);
+        gerirPecasButton.addActionListener(this::btnGerirPecasActionPerformed);
 
         //LOCAIS
         Sede sede = new Sede("Sede");
         GestorLocais.INSTANCE.addLocais(sede);
-        Filial filial1 = new Filial("Filial1");
+        Filial filial1 = new Filial("Filial 1");
         GestorLocais.INSTANCE.addLocais(filial1);
         Feira feira_de_maio = new Feira("Feira de Maio");
         GestorLocais.INSTANCE.addLocais(feira_de_maio);
         Feira feira_de_março = new Feira("Feira de Março");
         GestorLocais.INSTANCE.addLocais(feira_de_março);
+        Filial filial2 = new Filial("Filial 2");
+        GestorLocais.INSTANCE.addLocais(filial2);
 
 
 
@@ -71,10 +73,10 @@ public class JanelaPrincipal extends JFrame {
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
         gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
 
-        estatísticasButton.addActionListener(this::btnVisualizarEstatisticasActionPerformed);
+        estatisticasButton.addActionListener(this::btnVisualizarEstatisticasActionPerformed);
 
         gerirEventosButton.addActionListener(this::btnGerirEventosActionPerformed);
-        gerirTransaçõesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
+        gerirTransacoesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
 
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -86,9 +88,9 @@ public class JanelaPrincipal extends JFrame {
         JanelaEventos.mostrarGestorEventos();
     }
 
-    private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente(getTitle()).setVisible(true);}
+    private void btnGerirClientesActionPerformed(ActionEvent actionEvent) {new JanelaCliente("Janela Cliente").setVisible(true);}
 
-    private void btnGerirTransacoesActionPerformed(ActionEvent evt) { new JanelaTransacoes(getTitle()).setVisible(true);}
+    private void btnGerirTransacoesActionPerformed(ActionEvent evt) { new JanelaTransacoes("Janela Transacoes").setVisible(true);}
 
     public static void main(String[] args) {
         new JanelaPrincipal("JanelaPrincipal").setVisible(true);

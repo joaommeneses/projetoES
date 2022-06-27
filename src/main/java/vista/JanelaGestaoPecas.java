@@ -38,7 +38,9 @@ public class JanelaGestaoPecas extends JFrame {
         locais = GestorLocais.INSTANCE.getLocais();
 
         for (Local local : locais) {
-            modeloLista.addElement(local.getNome());
+            if(local.getClass() == Sede.class || local.getClass() == Filial.class){
+                modeloLista.addElement(local.getNome());
+            }
         }
         filialSedeComboBox.setEditable(false);
         registarPeçaButton.addActionListener(this::btnRegistarPecaActionPerformed);

@@ -19,7 +19,7 @@
           <text value="Gerir Veículos"/>
         </properties>
       </component>
-      <component id="8fe0f" class="javax.swing.JButton" binding="estatísticasButton" default-binding="true">
+      <component id="8fe0f" class="javax.swing.JButton" binding="estatisticasButton" default-binding="true">
         <constraints>
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -43,7 +43,7 @@
           <text value="Gerir Eventos"/>
         </properties>
       </component>
-      <component id="13401" class="javax.swing.JButton" binding="gerirTransaçõesButton" default-binding="true">
+      <component id="13401" class="javax.swing.JButton" binding="gerirTransacoesButton" default-binding="true">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -51,7 +51,7 @@
           <text value="Gerir Transações"/>
         </properties>
       </component>
-      <component id="53290" class="javax.swing.JButton" binding="gerirPeçasButton" default-binding="true">
+      <component id="53290" class="javax.swing.JButton" binding="gerirPecasButton" default-binding="true">
         <constraints>
           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

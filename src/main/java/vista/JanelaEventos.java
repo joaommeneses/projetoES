@@ -56,6 +56,7 @@ public class JanelaEventos extends JFrame {
 
     private void buttonRefreshActionPerformed(ActionEvent evt) {
         atualizarTabelaEventos();
+        atualizarEventosTerminados();
     }
 
     public void atualizarTabelaEventos() {
@@ -95,6 +96,12 @@ public class JanelaEventos extends JFrame {
     }
 
     private void atualizarEventosTerminados() {
+        if(dm2.getRowCount()>0){
+            for(int i = dm2.getRowCount() -1; i> -1; i--){
+                dm2.removeRow(i);
+            }
+        }
+
         List<Evento> eventos = GestorEventos.INSTANCE.getEventos();
 
         for (Evento evento : eventos) {

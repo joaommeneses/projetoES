@@ -81,7 +81,6 @@ public class JanelaEstatisticas extends JFrame {
         Set<Local> locais = GestorLocais.INSTANCE.getLocais();
         Set<Filial> filiais = new HashSet<>();
         String nome = "";
-        int investimento = 0;
         int investimento_max=0;
         for (Local filial : locais) {
             if(filial.getClass() == Filial.class){
@@ -90,6 +89,7 @@ public class JanelaEstatisticas extends JFrame {
         }
         //tenho todas filiais
         for (Filial filial : filiais) {
+            int investimento = 0;
             Set<Peca> pecas = filial.getPecas();
             for (Peca peca : pecas) {
                 int quantidade = Integer.parseInt(filial.getQuantidade(peca));
