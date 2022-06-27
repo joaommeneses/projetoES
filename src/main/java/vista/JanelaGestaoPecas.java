@@ -12,8 +12,8 @@ import java.awt.event.KeyEvent;
 import java.util.Set;
 
 public class JanelaGestaoPecas extends JFrame {
-    private JPanel painelGestãoPeças;
-    private JButton registarPeçaButton;
+    private JPanel painelGestaoPecas;
+    private JButton registarPecaButton;
     private JComboBox filialSedeComboBox;
     private JButton diminuirStockButton;
     private JButton aumentarStockButton;
@@ -43,7 +43,7 @@ public class JanelaGestaoPecas extends JFrame {
             }
         }
         filialSedeComboBox.setEditable(false);
-        registarPeçaButton.addActionListener(this::btnRegistarPecaActionPerformed);
+        registarPecaButton.addActionListener(this::btnRegistarPecaActionPerformed);
         aumentarStockButton.addActionListener(this::btnAdicionarStockActionPerformed);
         diminuirStockButton.addActionListener(this::btnDiminuirStockActionPerformed);
         createColumns();
@@ -66,7 +66,7 @@ public class JanelaGestaoPecas extends JFrame {
             }
         });
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setContentPane(painelGestãoPeças);
+        setContentPane(painelGestaoPecas);
         pack();
     }
 
