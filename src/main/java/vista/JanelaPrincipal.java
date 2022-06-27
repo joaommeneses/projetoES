@@ -8,26 +8,31 @@ import java.awt.event.ActionEvent;
 public class JanelaPrincipal extends JFrame {
     private JPanel painelPrincipal;
     private JButton gerirVeiculosButton;
-    private JButton gerirPeçasButton;
+    private JButton gerirPecasButton;
     private JButton gerirEventosButton;
-    private JButton gerirTransaçõesButton;
+    private JButton gerirTransacoesButton;
     private JButton gerirClientesButton;
-    private JButton estatísticasButton;
+    private JButton estatisticasButton;
 
     public JanelaPrincipal(String title){
         super(title);
-        gerirPeçasButton.addActionListener(this::btnGerirPecasActionPerformed);
+        gerirPecasButton.addActionListener(this::btnGerirPecasActionPerformed);
 
         //LOCAIS
         Sede sede = new Sede("Sede");
         GestorLocais.INSTANCE.addLocais(sede);
-        Filial filial1 = new Filial("Filial1");
+        Filial filial1 = new Filial("Filial 1");
         GestorLocais.INSTANCE.addLocais(filial1);
         Feira feira_de_maio = new Feira("Feira de Maio");
         GestorLocais.INSTANCE.addLocais(feira_de_maio);
+        Feira feira_de_marco = new Feira("Feira de Março");
+        GestorLocais.INSTANCE.addLocais(feira_de_marco);
+        Filial filial2 = new Filial("Filial 2");
+        GestorLocais.INSTANCE.addLocais(filial2);
 
 
 
+        GestorEventos.INSTANCE.adicionarEvento(new Evento("Feira de Março", new Data(26, 06, 2022), feira_de_marco, 10));
         //EVENTOS
         GestorEventos.INSTANCE.adicionarEvento(new Evento("Feira de Maio", new Data(01,01,2022) ,feira_de_maio, 10 ));
 
@@ -47,11 +52,32 @@ public class JanelaPrincipal extends JFrame {
         feira_de_maio.addVeiculo(veiculo);
         feira_de_maio.addVeiculo(veiculo1);
 
+        Veiculo veiculo3 = new Veiculo("XA-11-YP", "Mercedes", "AMG-GT", 0, "PRETO", 0, Combustivel.GASOLINA, 350,4000,2022,10000,"");
+        GestorVeiculos.INSTANCE.adicionarVeiculo(veiculo3);
+
+        feira_de_marco.addVeiculo(veiculo2);
+        feira_de_marco.addVeiculo(veiculo);
+        feira_de_marco.addVeiculo(veiculo1);
+        feira_de_marco.addVeiculo(veiculo3);
+
+        Cliente cliente1 = new Cliente("Antonio", 245313192, 950276172, "joao@mail.pt");
+        Transacao transacao1 = new Transacao(cliente1, 2.50, true);
+        Cliente cliente2 = new Cliente("Johnny", 239123192, 920192318, "fernando@mail.pt");
+        Transacao transacao2 = new Transacao(cliente2, 5, true);
+
+        GestorClientes.INSTANCE.adicionarCliente(cliente1);
+        GestorTransacoes.INSTANCE.adicionarTransacao(transacao1);
+        GestorClientes.INSTANCE.adicionarCliente(cliente2);
+        GestorTransacoes.INSTANCE.adicionarTransacao(transacao2);
 
         gerirVeiculosButton.addActionListener(this::btnGerirVeiculosActionPerformed);
         gerirClientesButton.addActionListener(this::btnGerirClientesActionPerformed);
+
+        estatisticasButton.addActionListener(this::btnVisualizarEstatisticasActionPerformed);
+
         gerirEventosButton.addActionListener(this::btnGerirEventosActionPerformed);
-        gerirTransaçõesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
+        gerirTransacoesButton.addActionListener(this::btnGerirTransacoesActionPerformed);
+
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(painelPrincipal);
@@ -78,4 +104,7 @@ public class JanelaPrincipal extends JFrame {
         JanelaVeiculos.mostarGestorVeiculos();
     }
 
+    private void btnVisualizarEstatisticasActionPerformed(ActionEvent evt){
+        JanelaEstatisticas.mostrarEstatisticas();
+    }
 }

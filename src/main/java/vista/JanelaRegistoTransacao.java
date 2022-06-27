@@ -8,7 +8,6 @@ import modelo.Transacao;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.List;
 
 public class JanelaRegistoTransacao extends JFrame{
     private JRadioButton compraRadioButton;
@@ -37,7 +36,7 @@ public class JanelaRegistoTransacao extends JFrame{
 
     private void btnConfirmar(ActionEvent evt){
 
-        if(!isNomeValido(nomeClienteTextField.getText())){
+        if(nomeClienteTextField.getText() != "" && !isNomeValido(nomeClienteTextField.getText())){
             Erros.mostrarErro(this, Erros.NOME_INVALIDO);
             return;
         }
@@ -58,8 +57,10 @@ public class JanelaRegistoTransacao extends JFrame{
         }
 
         if(GestorClientes.INSTANCE.existeClienteComNif(Long.parseLong(nifTextField.getText()))){
-            criarTransaçao();
+            System.out.println("NIF EXISTE");
+            criarTransacao();
         } else {
+            System.out.println("NIF NAO EXISTE");
             new JanelaRegistarCliente(getTitle(), this).setVisible(true);
             JOptionPane.showMessageDialog(this, "Crie Primeiro o cliente");
             this.dispose();
@@ -72,7 +73,7 @@ public class JanelaRegistoTransacao extends JFrame{
         fechar();
     }
 
-    private void criarTransaçao(){
+    private void criarTransacao(){
         Cliente cliente = GestorClientes.INSTANCE.getClienteComNif(Long.parseLong(nifTextField.getText()));
         System.out.println(cliente);
         GestorTransacoes.INSTANCE.adicionarTransacao(new Transacao(cliente, Double.parseDouble(valorTextField.getText()), compraRadioButton.isSelected()));
