@@ -8,7 +8,6 @@ import modelo.Transacao;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.List;
 
 public class JanelaRegistoTransacao extends JFrame{
     private JRadioButton compraRadioButton;
@@ -59,7 +58,7 @@ public class JanelaRegistoTransacao extends JFrame{
 
         if(GestorClientes.INSTANCE.existeClienteComNif(Long.parseLong(nifTextField.getText()))){
             System.out.println("NIF EXISTE");
-            criarTransaçao();
+            criarTransacao();
         } else {
             System.out.println("NIF NAO EXISTE");
             new JanelaRegistarCliente(getTitle(), this).setVisible(true);
@@ -74,7 +73,7 @@ public class JanelaRegistoTransacao extends JFrame{
         fechar();
     }
 
-    private void criarTransaçao(){
+    private void criarTransacao(){
         Cliente cliente = GestorClientes.INSTANCE.getClienteComNif(Long.parseLong(nifTextField.getText()));
         System.out.println(cliente);
         GestorTransacoes.INSTANCE.adicionarTransacao(new Transacao(cliente, Double.parseDouble(valorTextField.getText()), compraRadioButton.isSelected()));

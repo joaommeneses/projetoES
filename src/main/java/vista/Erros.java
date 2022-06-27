@@ -54,7 +54,7 @@ public class Erros {
                 break;
             }
             case PRECO_INVALIDO -> {
-                JOptionPane.showMessageDialog(parent, "Preço inválido!  O preço da peça deve ser um número positivo, e deve se utilizar um ponto para separar a parte inteira da parte decimal.");
+                JOptionPane.showMessageDialog(parent, "Preço inválido!  O preço deve ser um número positivo, e deve se utilizar um ponto para separar a parte inteira da parte decimal.");
                 break;
             }
             case QUANTIDADE_INVALIDA -> {

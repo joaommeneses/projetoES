@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 
 public class JanelaTransacoes extends JFrame {
-    private JButton novaTransaçãoButton;
+    private JButton novaTransacaoButton;
     private JPanel painelJanelaTransacoes;
     private JTable table1;
 
@@ -23,7 +23,7 @@ public class JanelaTransacoes extends JFrame {
 
         createColumns();
         populateTabel();
-        novaTransaçãoButton.addActionListener(this::btnRegistarNovaTransacao);
+        novaTransacaoButton.addActionListener(this::btnRegistarNovaTransacao);
     }
 
     private void btnRegistarNovaTransacao(ActionEvent evt){
