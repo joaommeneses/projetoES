@@ -26,6 +26,9 @@ public class Erros {
     public static final int CONTATO_INVALIDO = 20;
     public static final int EMAIL_INVALIDO = 21;
     public static final int NIF_REPETIDO = 22;
+    public static final int TIPO_TRASACAO_NAO_SELECIONADO = 23;
+    public static final int DATA_INVALIDA = 31;
+    public static final int DURACAO_EVENTO_INVALIDA = 32;
 
     public static void mostrarErro(Window parent, int numero){
 
@@ -129,6 +132,21 @@ public class Erros {
 
             case NIF_REPETIDO-> {
                 JOptionPane.showMessageDialog(parent, "NIF Inválido. Já existe um cliente com o NIF indicado");
+                break;
+            }
+
+            case TIPO_TRASACAO_NAO_SELECIONADO -> {
+                JOptionPane.showMessageDialog(parent, "Selecione um tipo de trasação");
+                break;
+            }
+
+            case DATA_INVALIDA-> {
+                JOptionPane.showMessageDialog(parent,  "Data Inválida. A data deve ter o formato dd/mm/aaaa");
+                break;
+            }
+
+            case DURACAO_EVENTO_INVALIDA -> {
+                JOptionPane.showMessageDialog(parent,  "Duração inválida. A duração deve ser um número inteiro");
                 break;
             }
         }

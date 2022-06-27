@@ -31,4 +31,22 @@ public class GestorClientes {
         }
         return false;
     }
+
+    public Cliente getClienteComNif(long nif){
+        for(Cliente cliente : clientes){
+            if (cliente.getNif() == nif) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public Cliente getClienteComNome(String nome){
+        for(Cliente cliente : clientes){
+            if (cliente.getNome() == nome) {
+                return cliente;
+            }
+        }
+        return null;
+    }
 }

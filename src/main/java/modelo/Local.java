@@ -1,11 +1,14 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public abstract class Local {
     private String nome;
     protected HashMap<Peca, Integer> pecas = new HashMap<>();
+    protected List<Veiculo> veiculos = new ArrayList<>();
 
     public Local(String nome) {
         this.nome = nome;
@@ -36,4 +39,19 @@ public abstract class Local {
     public abstract void addPeca(Peca p, int vFilial, int vSede);
 
 
+    public void addVeiculo(Veiculo veiculo) {
+        veiculos.add(veiculo);
+    }
+
+    public void removeVeiculo(Veiculo veiculo){
+        veiculos.remove(veiculo);
+    }
+
+    public int getNumVeiculos() {
+        return veiculos.size();
+    }
+
+    public List<Veiculo> getVeiculos(){
+        return veiculos;
+    }
 }

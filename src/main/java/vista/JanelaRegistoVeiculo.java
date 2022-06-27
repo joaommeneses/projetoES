@@ -6,9 +6,8 @@ import modelo.Veiculo;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class janelaRegistoVeiculo extends JFrame {
+public class JanelaRegistoVeiculo extends JFrame {
     private JLabel labelMatricula;
     private JTextField textFieldMatricula;
     private JLabel labelMarca;
@@ -38,7 +37,7 @@ public class janelaRegistoVeiculo extends JFrame {
     private JLabel labelTitulo;
     private JButton buttonCancelar;
 
-    public janelaRegistoVeiculo(String title) {
+    public JanelaRegistoVeiculo(String title) {
         super(title);
         setContentPane(jPanel);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -52,7 +51,7 @@ public class janelaRegistoVeiculo extends JFrame {
     }
 
     public static void mostrarAlterarVeiculo(Veiculo veiculo) {
-        var janela = new janelaRegistoVeiculo("Alterar Veiculo");
+        var janela = new JanelaRegistoVeiculo("Alterar Veiculo");
         janela.preencher(veiculo);
         janela.setVisible(true);
     }
@@ -69,6 +68,8 @@ public class janelaRegistoVeiculo extends JFrame {
         textFieldKm.setText(String.valueOf(veiculo.getKm()));
         comboBoxCombustivel.setSelectedItem(veiculo.getCombustivel());
         comboBoxCombustivel.setEnabled(false);
+        textFieldAntigoDono.setText(veiculo.getAntigoDono());
+        textFieldAntigoDono.setEditable(false);
         anoTextField.setText(String.valueOf(veiculo.getAno()));
         anoTextField.setEditable(false);
         textFieldPotencia.setText(String.valueOf(veiculo.getPotencia()));
@@ -87,7 +88,7 @@ public class janelaRegistoVeiculo extends JFrame {
     }
 
     public static void mostrarRegistoVeiculo() {
-        var janela = new janelaRegistoVeiculo("Registar Veiculo");
+        var janela = new JanelaRegistoVeiculo("Registar Veiculo");
         janela.setVisible(true);
     }
 
@@ -177,7 +178,7 @@ public class janelaRegistoVeiculo extends JFrame {
             if (erros == 0) {
                 Veiculo veiculo = new Veiculo(textFieldMatricula.getText(), textFieldMarca.getText(), textFieldModelo.getText(), Integer.parseInt(textFieldNrDonos.getText()),
                         textFieldCor.getText(), Double.parseDouble(textFieldKm.getText()), comboBoxCombustivel.getItemAt(comboBoxCombustivel.getSelectedIndex()), Integer.parseInt(textFieldPotencia.getText()),
-                        Double.parseDouble(textFieldCilindrada.getText()), Integer.parseInt(anoTextField.getText()), Double.parseDouble(precoTextField.getText()));
+                        Double.parseDouble(textFieldCilindrada.getText()), Integer.parseInt(anoTextField.getText()), Double.parseDouble(precoTextField.getText()), textFieldAntigoDono.getText());
                 GestorVeiculos.INSTANCE.adicionarVeiculo(veiculo);
                 fechar();
             }
