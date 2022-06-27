@@ -74,7 +74,7 @@
           </grid>
         </constraints>
       </hspacer>
-      <component id="10fc4" class="javax.swing.JButton" binding="novaTransaçãoButton" default-binding="true">
+      <component id="10fc4" class="javax.swing.JButton" binding="novaTransacaoButton" default-binding="true">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
