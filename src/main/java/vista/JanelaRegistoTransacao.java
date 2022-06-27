@@ -37,7 +37,7 @@ public class JanelaRegistoTransacao extends JFrame{
 
     private void btnConfirmar(ActionEvent evt){
 
-        if(nomeClienteTextField.getText() != "" && !isNomeValido(nomeClienteTextField.getText())){
+        if(!isNomeValido(nomeClienteTextField.getText())){
             Erros.mostrarErro(this, Erros.NOME_INVALIDO);
             return;
         }
@@ -58,10 +58,8 @@ public class JanelaRegistoTransacao extends JFrame{
         }
 
         if(GestorClientes.INSTANCE.existeClienteComNif(Long.parseLong(nifTextField.getText()))){
-            System.out.println("NIF EXISTE");
             criarTransaçao();
         } else {
-            System.out.println("NIF NAO EXISTE");
             new JanelaRegistarCliente(getTitle(), this).setVisible(true);
             JOptionPane.showMessageDialog(this, "Crie Primeiro o cliente");
             this.dispose();
