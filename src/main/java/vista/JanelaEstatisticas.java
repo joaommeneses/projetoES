@@ -42,6 +42,7 @@ public class JanelaEstatisticas extends JFrame {
     public void mostrarFeiraPopular(){
         List<Evento> eventos = GestorEventos.INSTANCE.getEventos();
         List<Veiculo> veiculos = GestorVeiculos.INSTANCE.getVeiculos();
+        
         String marca;
         HashMap<String, Integer> countMarcas = new HashMap<>();
         dmMarca = (DefaultTableModel) tabelaMarca.getModel();
@@ -51,7 +52,7 @@ public class JanelaEstatisticas extends JFrame {
             return;
         }
         for (Evento evento : eventos) {
-            veiculos.removeAll(veiculos);
+
             veiculos = evento.getLocal().getVeiculos();
         }
 
