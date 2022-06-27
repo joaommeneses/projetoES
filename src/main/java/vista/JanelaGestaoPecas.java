@@ -38,7 +38,9 @@ public class JanelaGestaoPecas extends JFrame {
         locais = GestorLocais.INSTANCE.getLocais();
 
         for (Local local : locais) {
-            modeloLista.addElement(local.getNome());
+            if(local.getClass() == Sede.class || local.getClass() == Filial.class){
+                modeloLista.addElement(local.getNome());
+            }
         }
         filialSedeComboBox.setEditable(false);
         registarPeçaButton.addActionListener(this::btnRegistarPecaActionPerformed);
@@ -94,15 +96,10 @@ public class JanelaGestaoPecas extends JFrame {
     public void mostrarPecasLocal(String nome){
         Set<Peca> pecas = GestorLocais.INSTANCE.getPecasDeLocal(nome);
         Local localGerido = GestorLocais.INSTANCE.getLocal(nome);
-        //boolean sede= false;
 
         for (int i = 0; i < dm.getRowCount(); i++) {
             dm.removeRow(i);
         }
-
-        /*if(localGerido.getClass() == Sede.class){
-            sede = true;
-        }*/
         for(Peca peca : pecas){
 
             String[] rowData = {
@@ -123,20 +120,29 @@ public class JanelaGestaoPecas extends JFrame {
     }
 
     private void btnAdicionarStockActionPerformed(ActionEvent evt){
-        Peca p;
+        Local local = GestorLocais.INSTANCE.getLocal(localEscolhido);
         int column = 0;
         int row = tabelaPecas.getSelectedRow();
         String referencia = tabelaPecas.getModel().getValueAt(row, column).toString();
-        System.out.println("referencia" + referencia);
+        Peca p;
         int quantidade = Integer.parseInt(textField2.getText());
-        if(localEscolhido.equals("Sede")){
-            System.out.println("sede escolhida");
+        if(!isQuantidadeValida(quantidade)){
+            Erros.mostrarErro(this, Erros.QUANTIDADE_INVALIDA);
+            return;
+        }
+
+        if(local.getClass() == Sede.class){
             p = GestorPeca.INSTANCE.getPeca(referencia);
             GestorLocais.INSTANCE.addPecaToLocais(p, 0, quantidade);
         }else{
-            System.out.println("filial escolhida");
+            p = GestorPeca.INSTANCE.getPeca(referencia);
+            if(Integer.parseInt(GestorLocais.INSTANCE.getLocal("Sede").getQuantidade(p)) < quantidade){
+                Erros.mostrarErro(this, Erros.TRANSFERENCIA_STOCK_INVALIDA);
+                return;
+            }
             p = GestorPeca.INSTANCE.getPeca(referencia);
             GestorLocais.INSTANCE.addPecaToLocais(p, quantidade, -quantidade );
+
         }
         for (int i = 0; i < dm.getRowCount(); i++) {
             dm.removeRow(i);
@@ -145,12 +151,17 @@ public class JanelaGestaoPecas extends JFrame {
     }
 
     private void btnDiminuirStockActionPerformed(ActionEvent evt){
+        Local local = GestorLocais.INSTANCE.getLocal(localEscolhido);
         Peca p;
         int column = 0;
         int row = tabelaPecas.getSelectedRow();
         String referencia = tabelaPecas.getModel().getValueAt(row, column).toString();
         int quantidade = Integer.parseInt(textField2.getText());
-        if(localEscolhido.equals("Sede")){
+        if(!isQuantidadeValida(quantidade)){
+            Erros.mostrarErro(this, Erros.QUANTIDADE_INVALIDA);
+            return;
+        }
+        if(local.getClass() == Sede.class){
             p = GestorPeca.INSTANCE.getPeca(referencia);
             GestorLocais.INSTANCE.addPecaToLocais(p, 0, -quantidade);
         }else{
@@ -169,5 +180,13 @@ public class JanelaGestaoPecas extends JFrame {
         tabelaPecas.setRowSorter(tr);
 
         tr.setRowFilter(RowFilter.regexFilter(query));
+    }
+
+    private boolean isQuantidadeValida(int quantidade){
+        if(quantidade > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

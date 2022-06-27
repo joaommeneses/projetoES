@@ -10,6 +10,8 @@ public class Erros {
     public static final int STOCK_MIN_FILIAL_INVALIDO = 4;
     public static final int STOCK_MIN_INVALIDO = 5;
     public static final int PRECO_INVALIDO = 6;
+    public static final int QUANTIDADE_INVALIDA = 7;
+    public static final int TRANSFERENCIA_STOCK_INVALIDA = 8;
     public static final int MATRICULA_INVALIDA = 9;
     public static final int MARCA_INVALIDA = 10;
     public static final int MODELO_INVALIDO = 11;
@@ -53,6 +55,14 @@ public class Erros {
             }
             case PRECO_INVALIDO -> {
                 JOptionPane.showMessageDialog(parent, "Preço inválido!  O preço da peça deve ser um número positivo, e deve se utilizar um ponto para separar a parte inteira da parte decimal.");
+                break;
+            }
+            case QUANTIDADE_INVALIDA -> {
+                JOptionPane.showMessageDialog(parent, "Quantidade Inválida! A quantidade deve ser maior que 0!");
+                break;
+            }
+            case TRANSFERENCIA_STOCK_INVALIDA -> {
+                JOptionPane.showMessageDialog(parent, "Transferência de stock para filial inválida, sede não tem quantidade necessária.\nAumentar stock da sede.");
                 break;
             }
             case MATRICULA_INVALIDA -> {
